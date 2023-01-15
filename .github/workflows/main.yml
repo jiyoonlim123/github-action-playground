@@ -1,0 +1,23 @@
+name: Test github action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  logs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+          submodules: recursive
+          token: ${{ secrets.TOKEN }}
+
+      - name: Check for file changes
+        id: docker-files-changed
+        uses: tj-actions/changed-files@v11.5
+        with:
+          files: |
+            srcs/*
+            versions/*
