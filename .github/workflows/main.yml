@@ -16,7 +16,7 @@ jobs:
 
       - name: Check for file changes
         id: changed-files
-        uses: tj-actions/changed-files@v11.5
+        uses: tj-actions/changed-files@v35
         with:
           files: |
             srcs/*
@@ -25,4 +25,7 @@ jobs:
       - name: Print changed files
         run: |
           echo "Check file changes"
-          echo ${{ steps.changed-files.outputs.all_changed_files }}
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
+          echo ${{ steps.changed-files.outputs.all_changed_files }};
