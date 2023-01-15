@@ -15,7 +15,7 @@ jobs:
           token: ${{ secrets.TOKEN }}
 
       - name: Check for file changes
-        id: docker-files-changed
+        id: changed-files
         uses: tj-actions/changed-files@v11.5
         with:
           files: |
@@ -25,6 +25,4 @@ jobs:
       - name: Print changed files
         run: |
           echo "Check file changes"
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
+          echo ${{ steps.changed-files.outputs.all_changed_files }}
