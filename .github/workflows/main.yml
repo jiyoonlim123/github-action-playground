@@ -16,7 +16,7 @@ jobs:
 
       - name: Check for file changes
         id: docker-files-changed
-        uses: tj-actions/changed-files@v11.5
+        uses: tj-actions/changed-files@v35
         with:
           files: |
             srcs/*
