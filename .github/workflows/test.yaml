@@ -7,6 +7,7 @@ on:
 jobs:
   logs:
     runs-on: ubuntu-latest
-    steps: |
-      echo "HI"
+    steps:
+      - run: |
+        echo "HI"
 
